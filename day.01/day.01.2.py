@@ -1,17 +1,14 @@
 import sys
 
-num = []
-spotted = []
-
-for line in sys.stdin:
-    num.append(int(line))
+num = [int(line) for line in sys.stdin.readlines()]
+spotted = {}
 
 totalNum = len(num)
 currentFreq = 0
 index = 0
 
 while currentFreq not in spotted:
-    spotted.append(currentFreq)
+    spotted[currentFreq] = True
     currentFreq += num[index]
     index = (index + 1) % totalNum
 
